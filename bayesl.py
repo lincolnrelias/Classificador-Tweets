@@ -1,5 +1,5 @@
 import math,random
-data = open("saDataProcessedNoStopWords.csv","r")
+data = open("saDataProcessed.csv","r")
 dataArr = data.read().splitlines()
 random.shuffle(dataArr)
 trainData = dataArr[0:math.floor(2*(len(dataArr)/3))]
@@ -50,3 +50,7 @@ for line in testData:
     if predicted==observed:
         accuracy+=1
 print("acurácia do modelo: ",accuracy/len(testData))
+while True:
+    print("Testando modelo, digite a frase a ser testada:(ingles somente)")
+    
+    print("a palavra possui conotação ","negativa" if predictSentiment(input())=="0" else "positiva")
